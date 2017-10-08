@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     fileprivate var videoInput: AVCaptureDeviceInput?
     fileprivate var videoOutput: AVCaptureVideoDataOutput?
     fileprivate var previewLayer: AVCaptureVideoPreviewLayer?
+    fileprivate var movieOutput : AVCaptureMovieFileOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ extension ViewController {
     }
     
     @IBAction func stop(_ sender: Any) {
-//        movieOutput?.stopRecording()
+        movieOutput?.stopRecording()
         session.stopRunning()
         previewLayer?.isHidden = true
     }
@@ -116,6 +117,24 @@ extension ViewController {
         view.layer.insertSublayer(previewLayer, at: 0)
         self.previewLayer = previewLayer
     }
+    
+    fileprivate func setupMovieFileOutput() {
+        // 1.创建写入输出
+        let fileOutput = AVCaptureMovieFileOutput()
+        self.movieOutput = fileOutput
+        
+        let connection = fileOutput.connection(withMediaType: AVMediaTypeVideo)
+        connection?.automaticallyAdjustsVideoMirroring = true
+        
+        if session.canAddOutput(fileOutput) {
+            session.addOutput(fileOutput)
+        }
+        
+        // 2.直接开始写入文件
+        let filePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/abc.mp4"
+        let fileURL = URL(fileURLWithPath: filePath)
+        fileOutput.startRecording(toOutputFileURL: fileURL, recordingDelegate: self)
+    }
 }
 
 extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate {
@@ -125,5 +144,15 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptur
         } else {
             print("采集音频数据")
         }
+    }
+}
+
+extension ViewController: AVCaptureFileOutputRecordingDelegate {
+    func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
+        print("开始写入文件")
+    }
+    
+    func capture(_ captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAt outputFileURL: URL!, fromConnections connections: [Any]!, error: Error!) {
+        print("完成写入文件")
     }
 }

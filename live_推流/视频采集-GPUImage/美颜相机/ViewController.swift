@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     }()
     // 写入路径
     fileprivate var fileURL : URL {
-        let path = URL(fileURLWithPath: "\(NSTemporaryDirectory())abc.mp4")
+        let path = URL(fileURLWithPath: "\(NSTemporaryDirectory())123.mp4")
         return path
     }
     
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 先删除，否则会崩溃 https://my.oschina.net/NycoWang/blog/856569
-        let path = URL(fileURLWithPath: "\(NSTemporaryDirectory())abc.mp4")
+        let path = URL(fileURLWithPath: "\(NSTemporaryDirectory())123.mp4")
         try? FileManager.default.removeItem(at: path)
         
         // camera方向

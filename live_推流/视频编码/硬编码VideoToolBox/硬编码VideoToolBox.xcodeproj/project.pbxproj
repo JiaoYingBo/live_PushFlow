@@ -14,6 +14,7 @@
 		0EED43B21F8D014B0096FA58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EED43B11F8D014B0096FA58 /* Assets.xcassets */; };
 		0EED43B51F8D014B0096FA58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EED43B31F8D014B0096FA58 /* LaunchScreen.storyboard */; };
 		0EED43E11F8D026F0096FA58 /* VideoCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED43E01F8D026F0096FA58 /* VideoCapture.m */; };
+		0EED43E41F8D02C10096FA58 /* VideoEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EED43E31F8D02C10096FA58 /* VideoEncoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		0EED43B61F8D014B0096FA58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EED43DF1F8D026F0096FA58 /* VideoCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCapture.h; sourceTree = "<group>"; };
 		0EED43E01F8D026F0096FA58 /* VideoCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCapture.m; sourceTree = "<group>"; };
+		0EED43E21F8D02C10096FA58 /* VideoEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEncoder.h; sourceTree = "<group>"; };
+		0EED43E31F8D02C10096FA58 /* VideoEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEncoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				0EED43AE1F8D014B0096FA58 /* Main.storyboard */,
 				0EED43DF1F8D026F0096FA58 /* VideoCapture.h */,
 				0EED43E01F8D026F0096FA58 /* VideoCapture.m */,
+				0EED43E21F8D02C10096FA58 /* VideoEncoder.h */,
+				0EED43E31F8D02C10096FA58 /* VideoEncoder.m */,
 				0EED43B11F8D014B0096FA58 /* Assets.xcassets */,
 				0EED43B31F8D014B0096FA58 /* LaunchScreen.storyboard */,
 				0EED43B61F8D014B0096FA58 /* Info.plist */,
@@ -158,6 +163,7 @@
 				0EED43E11F8D026F0096FA58 /* VideoCapture.m in Sources */,
 				0EED43AD1F8D014B0096FA58 /* ViewController.m in Sources */,
 				0EED43AA1F8D014B0096FA58 /* AppDelegate.m in Sources */,
+				0EED43E41F8D02C10096FA58 /* VideoEncoder.m in Sources */,
 				0EED43A71F8D014B0096FA58 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

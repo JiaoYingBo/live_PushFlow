@@ -6,8 +6,12 @@
 //  Copyright © 2017年 jyb. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface VideoCapture : NSObject
+
+- (void)startCapture:(UIView *)preview;
+
+- (void)stopCapture;
 
 @end

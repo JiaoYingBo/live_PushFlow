@@ -14,13 +14,10 @@
 
 /** 编码对象 */
 @property (nonatomic, strong) VideoEncoder *encoder;
-
 /** 捕捉会话*/
 @property (nonatomic, weak) AVCaptureSession *captureSession;
-
 /** 预览图层 */
 @property (nonatomic, weak) AVCaptureVideoPreviewLayer *previewLayer;
-
 /** 捕捉画面执行的线程队列 */
 @property (nonatomic, strong) dispatch_queue_t captureQueue;
 
@@ -28,8 +25,7 @@
 
 @implementation VideoCapture
 
-- (void)startCapture:(UIView *)preview
-{
+- (void)startCapture:(UIView *)preview {
     // 0.初始化编码对象
     self.encoder = [[VideoEncoder alloc] init];
     

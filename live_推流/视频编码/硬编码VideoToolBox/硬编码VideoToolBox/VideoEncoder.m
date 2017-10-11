@@ -99,8 +99,7 @@ void didCompressH264(void *outputCallbackRefCon, void *sourceFrameRefCon, OSStat
     bool isKeyframe = !CFDictionaryContainsKey( (CFArrayGetValueAtIndex(CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, true), 0)), kCMSampleAttachmentKey_NotSync);
     // 判断当前帧是否为关键帧
     // 获取sps & pps数据
-    if (isKeyframe)
-    {
+    if (isKeyframe) {
         // 获取编码后的信息（存储于CMFormatDescriptionRef中）
         CMFormatDescriptionRef format = CMSampleBufferGetFormatDescription(sampleBuffer);
         
@@ -150,8 +149,7 @@ void didCompressH264(void *outputCallbackRefCon, void *sourceFrameRefCon, OSStat
     }
 }
 
-- (void)gotSpsPps:(NSData*)sps pps:(NSData*)pps
-{
+- (void)gotSpsPps:(NSData*)sps pps:(NSData*)pps {
     // 1.拼接NALU的header
     const char bytes[] = "\x00\x00\x00\x01";
     size_t length = (sizeof bytes) - 1;
@@ -162,13 +160,12 @@ void didCompressH264(void *outputCallbackRefCon, void *sourceFrameRefCon, OSStat
     [self.fileHandle writeData:sps];
     [self.fileHandle writeData:ByteHeader];
     [self.fileHandle writeData:pps];
-    
 }
-- (void)gotEncodedData:(NSData*)data isKeyFrame:(BOOL)isKeyFrame
-{
+
+- (void)gotEncodedData:(NSData*)data isKeyFrame:(BOOL)isKeyFrame {
     NSLog(@"gotEncodedData %d", (int)[data length]);
-    if (self.fileHandle != NULL)
-    {
+    
+    if (self.fileHandle != NULL) {
         const char bytes[] = "\x00\x00\x00\x01";
         size_t length = (sizeof bytes) - 1; //string literals have implicit trailing '\0'
         NSData *ByteHeader = [NSData dataWithBytes:bytes length:length];

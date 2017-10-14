@@ -1,0 +1,8 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target '使用LFLiveKit推流' do
+
+pod 'LFLiveKit', '~> 2.6'
+
+end

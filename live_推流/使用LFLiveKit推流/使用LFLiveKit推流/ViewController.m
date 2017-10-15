@@ -24,7 +24,7 @@
 
 - (IBAction)start:(id)sender {
     LFLiveStreamInfo *stream = [[LFLiveStreamInfo alloc] init];
-    stream.url = @"rtmp://59.110.27.24/live/demo";
+    stream.url = @"rtmp://192.168.0.101/live/test";
     [self.session startLive:stream];
     [self.session setRunning:YES];
 }

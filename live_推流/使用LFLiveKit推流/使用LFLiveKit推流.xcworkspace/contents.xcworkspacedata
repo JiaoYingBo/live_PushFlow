@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:使用LFLiveKit推流.xcodeproj">
+      location = "group:&#x4f7f;&#x7528;LFLiveKit&#x63a8;&#x6d41;.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

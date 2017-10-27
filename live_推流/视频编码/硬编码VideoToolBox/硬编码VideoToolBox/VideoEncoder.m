@@ -139,7 +139,7 @@ void didCompressH264(void *outputCallbackRefCon, void *sourceFrameRefCon, OSStat
             // 从大端转系统端
             NALUnitLength = CFSwapInt32BigToHost(NALUnitLength);
             
-            NSData* data = [[NSData alloc] initWithBytes:(dataPointer + bufferOffset + AVCCHeaderLength) length:NALUnitLength];
+            NSData *data = [[NSData alloc] initWithBytes:(dataPointer + bufferOffset + AVCCHeaderLength) length:NALUnitLength];
             [encoder gotEncodedData:data isKeyFrame:isKeyframe];
             
             // 移动到写一个块，转成NALU单元
